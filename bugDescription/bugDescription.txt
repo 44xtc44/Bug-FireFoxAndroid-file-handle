@@ -1,0 +1,43 @@
+
+
+Fenix and Nigtly suffer from lost file handle <fileUpload.files> if tab goes background
+---
+* reproduce bug: https://github.com/44xtc44/Bug-FireFoxAndroid-file-handle
+* Android FF <input type="file", loaded audio and video media
+* if tab goes background play stops, wikipedia in forground
+* if tab comes in front play() refuses (other add-on also refuses to load next file, full red error)
+* Android Studio Emulator AVD 13.5  Freeform API 30 and Samsung A136B 
+---
+Same error number as here https://bugzilla.mozilla.org/show_bug.cgi?id=1417113 , but not related.
+Use same method to load media files in audio/video element. I build a minimal extension from it.
+
+Full error
+-------------
+See full error with: https://addons.mozilla.org/en-US/firefox/addon/playlistbooster/
+
+A more detailed message of the bug on screen shot.
+
+If the media stuck and the next media is selected (ffw btn) the console logs the 'resource not suitable'.
+
+File handles are gone.
+---
+"Playlist Booster Shuffle [Volume Gain]" extension has the above mentioned problem also (video element)
+here the remote debugger Win -> Android:
+Media resource blob:moz-extension://8793a2f3-da37-44f9-b2f2-34d865f2ca53/b87a5dc2-b5db-470d-9bfe-601f1f1c7bd1 could not be decoded. 11 playlistShuffleBooster.html
+Media resource blob:moz-extension://8793a2f3-da37-44f9-b2f2-34d865f2ca53/b87a5dc2-b5db-470d-9bfe-601f1f1c7bd1 could not be decoded, error: Error Code: NS_ERROR_DOM_MEDIA_DEMUXER_ERR (0x806e000c) playlistShuffleBooster.html
+Media resource blob:moz-extension://8793a2f3-da37-44f9-b2f2-34d865f2ca53/b87a5dc2-b5db-470d-9bfe-601f1f1c7bd1 could not be decoded. 10 playlistShuffleBooster.html
+Media resource blob:moz-extension://8793a2f3-da37-44f9-b2f2-34d865f2ca53/b87a5dc2-b5db-470d-9bfe-601f1f1c7bd1 could not be decoded, error: Error Code: NS_ERROR_DOM_MEDIA_DEMUXER_ERR (0x806e000c) playlistShuffleBooster.html
+
+A more detailed message in the bug screen shot of "Playlist Booster Shuffle [Volume Gain]".
+
+If the media stuck and the next media is selected (ffw btn) the console logs the 'resource not suitable'.
+File handles are gone.
+---
+
+
+
+
+
+
+
+

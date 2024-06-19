@@ -1,0 +1,29 @@
+{
+  "version":"1.5",
+  "author": "René Horn",
+  "name":"bug report Android upload file handle",
+  "short_name": "",
+  "description": "",
+  "manifest_version":2,
+  "homepage_url": "https://github.com/44xtc44/Bug-FireFoxAndroid-file-handle",
+  "browser_action": {
+    "default_icon": {
+      "16": "/static/images/default_icon.svg",
+      "32": "/static/images/default_icon.svg",
+      "48": "/static/images/default_icon.svg",
+      "96": "/static/images/default_icon.svg",
+      "192": "/static/images/default_icon.svg",
+      "384": "/static/images/default_icon.svg",
+      "768": "/static/images/default_icon.svg",
+      "1536": "/static/images/default_icon.svg"
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
